@@ -7,18 +7,31 @@ import Wrapper from "./Wrapper";
 import AppBar from "./AppBar";
 import FixedButton from "./FixedButton";
 import GrabTextField from "./GrabTextField";
+import Steps from "./Steps";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div
+        className="App"
+        style={{
+          paddingBottom: "50px",
+          backgroundColor: "#F7F9FB",
+          minHeight: "100vh"
+        }}
+      >
         <Helmet>
           <meta
             name="viewport"
             content="width=device-width, user-scalable=no"
           />
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.1/tachyons.min.css"
+          />
         </Helmet>
         <AppBar />
+        <Steps />
         <Wrapper>
           <Header
             title="Your contact information"
