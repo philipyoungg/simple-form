@@ -4,14 +4,14 @@ import FixedButton from "./FixedButton";
 import { fontSizePrimary, textColorSecondary } from "./variable";
 
 const validate = values => {
-  const defaultErrMessage = "input is required";
+  const defaultErrMessage = "This field cannot be empty";
   const errors = {};
   if (!values.firstName) errors.firstName = defaultErrMessage;
   if (!values.lastName) errors.lastName = defaultErrMessage;
   if (!values.phone) {
     errors.phone = defaultErrMessage;
   } else if (isNaN(Number(values.phone))) {
-    errors.phone = "please enter number";
+    errors.phone = "This field needs number";
   }
   if (!values.address) errors.address = defaultErrMessage;
   return errors;
@@ -44,6 +44,7 @@ const renderField = ({
       type={type}
       style={{
         position: "relative",
+        padding: 0,
         marginTop: "4px",
         fontSize: fontSizePrimary,
         marginBottom: "0",
@@ -105,7 +106,7 @@ class FormUserRegistration extends React.Component {
           name="phone"
           component={renderField}
           type="tel"
-          label="Address"
+          label="Contact Number"
         />
       <FixedButton valid={valid} />
       </form>
