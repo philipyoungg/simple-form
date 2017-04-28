@@ -5,9 +5,8 @@ import "./App.css";
 import Header from "./Header";
 import Wrapper from "./Wrapper";
 import AppBar from "./AppBar";
-import FixedButton from "./FixedButton";
-import GrabTextField from "./GrabTextField";
 import Steps from "./Steps";
+import FormUserRegistration from './FormUserRegistration'
 
 class App extends Component {
   render() {
@@ -37,12 +36,8 @@ class App extends Component {
             title="Your contact information"
             description="Fill in the following details"
           />
-          <GrabTextField label="Your First Name" />
-          <GrabTextField label="Your Last Name" />
-          <GrabTextField label="Contact Number" type="tel" />
-          <GrabTextField label="Address" textArea />
+          <FormUserRegistration />
         </Wrapper>
-        <FixedButton />
       </div>
     );
   }
