@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+html {
+  font-size: '14px';
+}
+
+h1, h2, h3, p, input {
+  margin: 0;
+  margin-bottom: 1rem;
+  color: #363A45;
+}
