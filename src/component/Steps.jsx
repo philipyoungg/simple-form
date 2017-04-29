@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { connect } from "react-redux";
 import { global, text } from "../variable";
 import { Link, withRouter } from "react-router-dom";
 
