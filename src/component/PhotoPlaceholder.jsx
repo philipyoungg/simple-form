@@ -37,4 +37,4 @@ const PhotoPlaceholder = () => (
   </PlaceholderWrapper>
 );
 
-export default PhotoPlaceholder
+export default PhotoPlaceholder;
