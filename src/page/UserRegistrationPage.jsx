@@ -2,7 +2,6 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import FixedButton from "../component/FixedButton";
 import Header from "../component/Header";
-import Steps from "../component/Steps";
 import renderInput from "../component/RenderInput";
 
 const validate = values => {
@@ -61,7 +60,6 @@ FormUserRegistration = reduxForm({
 
 const UserRegistrationPage = ({ handleNextPage, match }) => (
   <div>
-    <Steps match={match} />
     <Header
       title="Your contact information"
       description="Fill in the following details"

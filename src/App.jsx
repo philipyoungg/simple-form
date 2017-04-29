@@ -4,6 +4,7 @@ import { Route, Redirect } from "react-router-dom";
 import Wrapper from "./component/Wrapper";
 import AppBar from "./component/AppBar";
 import Body from "./component/Body";
+import Steps from "./component/Steps";
 import ScrollToTop from "./component/ScrollToTop";
 import PhotoUploadPage from "./page/PhotoUploadPage";
 import UserRegistrationPage from "./page/UserRegistrationPage";
@@ -13,6 +14,7 @@ const App = () => (
   <ScrollToTop>
     <Body>
       <AppBar />
+      <Steps />
       <Wrapper>
         <Redirect from="/" to="/1" />
         <Route path="/1" component={PhotoUploadPage} />

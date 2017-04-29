@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { global, text } from "../variable";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 const StyledLink = styled(Link)`
 float: left;
@@ -16,8 +16,8 @@ pointer-events: none;
 text-decoration: none;
 `;
 
-const RegistrationLink = ({ to, label, match, idenfitier }) => {
-  const currIdentifier = match.url.replace("/", "");
+const RegistrationLink = ({ to, label, location, idenfitier }) => {
+  const currIdentifier = location.pathname.replace("/", "");
   const isFinished = currIdentifier >= idenfitier;
   const isActive = currIdentifier === idenfitier;
   return (
@@ -34,20 +34,20 @@ const RegistrationLink = ({ to, label, match, idenfitier }) => {
 
 const RegistrationLinkWrapper = styled.div`
 text-align: center;
-paddingBottom: 30px;
-&:after {
-  display: table;
-  clear:both;
-  content: "";
-}
-`
+paddingBottom: ${global.size.margin};
+  &:after {
+    display: table;
+    clear:both;
+    content: "";
+  }
+`;
 
-const Steps = ({ match }) => (
+const Steps = ({ location }) => (
   <RegistrationLinkWrapper>
-    <RegistrationLink to="/1" label="Step 1" idenfitier="1" match={match} />
-    <RegistrationLink to="/2" label="Step 2" idenfitier="2" match={match} />
-    <RegistrationLink to="/3" label="Step 3" idenfitier="3" match={match} />
+    <RegistrationLink to="/1" label="Step 1" idenfitier="1" location={location} />
+    <RegistrationLink to="/2" label="Step 2" idenfitier="2" location={location} />
+    <RegistrationLink to="/3" label="Step 3" idenfitier="3" location={location} />
   </RegistrationLinkWrapper>
 );
 
-export default connect(state => ({ activeState: state.activeState }))(Steps);
+export default withRouter(Steps);
