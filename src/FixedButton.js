@@ -1,30 +1,41 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { colorPrimary } from "./variable";
 
-const FixedButton = ({ valid }) => {
+const FixedButton = ({ valid, to }) => {
   return (
-    <button
-      type="submit"
-      disabled={!valid}
+    <div
       style={{
-        height: "50px",
-        width: "100%",
-        fontWeight: "bold",
-        color: "white",
-        textAlign: "center",
-        lineHeight: "50px",
+        padding: "10px",
         position: "fixed",
-        zIndex: "100",
-        left: 0,
+        width: "100%",
         bottom: 0,
-        border: "none",
-        cursor: "pointer",
-        backgroundColor: valid ? colorPrimary : 'gray',
+        left: 0,
+        zIndex: "100"
       }}
     >
-      NEXT
-    </button>
+      <Link to={to}>
+        <button
+          type="submit"
+          disabled={!valid}
+          style={{
+            height: 54,
+            width: "100%",
+            fontWeight: "bold",
+            color: "white",
+            textAlign: "center",
+            lineHeight: "54px",
+            border: "none",
+            cursor: "pointer",
+            borderRadius: "4px",
+            backgroundColor: valid ? colorPrimary : "gray"
+          }}
+        >
+          NEXT
+        </button>
+      </Link>
+    </div>
   );
-}
+};
 
 export default FixedButton;

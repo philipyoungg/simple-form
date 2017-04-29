@@ -6,7 +6,7 @@ import {
 const AppBar = () => (
   <div
     style={{
-      height: "45px",
+      height: 45,
       width: "100%",
       backgroundColor: colorPrimary,
     }}

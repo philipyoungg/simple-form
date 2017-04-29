@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import Helmet from "react-helmet";
 import "./App.css";
 
-import Header from "./Header";
+import { Route, Redirect } from "react-router-dom";
 import Wrapper from "./Wrapper";
 import AppBar from "./AppBar";
-import Steps from "./Steps";
-import FormUserRegistration from './FormUserRegistration'
+import PhotoUpload from "./PhotoUpload";
+import FormUserRegistration from "./FormUserRegistration";
+import Complete from "./Complete";
 
 class App extends Component {
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
       <div
         className="App"
         style={{
-          paddingBottom: "50px",
+          paddingBottom: 50,
           backgroundColor: "#F7F9FB",
           minHeight: "100vh"
         }}
@@ -30,13 +31,11 @@ class App extends Component {
           />
         </Helmet>
         <AppBar />
-        <Steps />
         <Wrapper>
-          <Header
-            title="Your contact information"
-            description="Fill in the following details"
-          />
-          <FormUserRegistration />
+          <Redirect from='/' to='/1'></Redirect>
+          <Route path="/1" component={PhotoUpload} />
+          <Route path="/2" component={FormUserRegistration} />
+          <Route path="/3" component={Complete} />
         </Wrapper>
       </div>
     );

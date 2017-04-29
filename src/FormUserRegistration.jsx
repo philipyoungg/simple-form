@@ -1,6 +1,8 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import FixedButton from "./FixedButton";
+import Header from "./Header";
+import Steps from "./Steps";
 import { fontSizePrimary, textColorSecondary } from "./variable";
 
 const validate = values => {
@@ -31,11 +33,11 @@ const renderField = ({
       maxWidth: "100%",
       border: "1px solid",
       borderColor: "#CCD6DD",
-      borderRadius: "4px",
-      marginBottom: "21px",
+      borderRadius: 4,
+      marginBottom: 21,
       overflow: "inherit",
       padding: "0 12px",
-      height: "54px",
+      height: 54,
       position: "relative"
     }}
   >
@@ -45,7 +47,7 @@ const renderField = ({
       style={{
         position: "relative",
         padding: 0,
-        marginTop: "4px",
+        marginTop: 4,
         fontSize: fontSizePrimary,
         marginBottom: "0",
         background: "transparent",
@@ -62,6 +64,7 @@ const renderField = ({
         transition: "0.3s ease-in-out",
         transformOrigin: "left 0",
         color: textColorSecondary,
+        pointerEvents: "none",
         transform: dirty
           ? "scale(0.75) translateY(-10px)"
           : active ? "scale(0.75) translateY(-10px)" : ""
@@ -71,17 +74,16 @@ const renderField = ({
     </p>
     {touched &&
       error &&
-      <span
+      <p
         style={{
           position: "absolute",
-          top: "56px",
-          left: 0,
+          top: 57,
           color: "red",
           fontSize: 11
         }}
       >
         {error}
-      </span>}
+      </p>}
   </div>
 );
 
@@ -108,13 +110,26 @@ class FormUserRegistration extends React.Component {
           type="tel"
           label="Contact Number"
         />
-      <FixedButton valid={valid} />
+      <FixedButton valid={valid} to='/3'/>
       </form>
     );
   }
 }
 
-export default reduxForm({
+FormUserRegistration = reduxForm({
   form: "userRegistration",
   validate
 })(FormUserRegistration);
+
+const UserRegistrationPage = ({ handleNextPage }) => (
+  <div>
+    <Steps />
+    <Header
+      title="Your contact information"
+      description="Fill in the following details"
+    />
+    <FormUserRegistration />
+  </div>
+);
+
+export default UserRegistrationPage;
