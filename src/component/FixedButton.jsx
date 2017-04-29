@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { global } from "./variable";
+import { global } from "../variable";
 
 const ButtonWrapper = styled.div`
   padding: ${global.size.padding};
@@ -14,14 +14,16 @@ const ButtonWrapper = styled.div`
 
 const Button = styled.button`
   height: ${global.size.touchable};
-  width: 100%;
   font-weight: bold;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
   color: white;
   text-align: center;
   line-height: ${global.size.touchable};
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: ${global.size.borderRadius};
   background-color: ${props => (props.valid ? global.color.primary : global.color.disabled)};
 `;
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { global } from "./variable";
+import { global } from "../variable";
 
 const AppBar = styled.div`
   height: ${global.size.touchable};

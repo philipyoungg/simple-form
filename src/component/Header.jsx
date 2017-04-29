@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { text, global } from "./variable";
+import { text, global } from "../variable";
 
 const HeaderWrapper = styled.div`
 padding: 0 ${global.size.padding};

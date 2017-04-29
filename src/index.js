@@ -7,15 +7,7 @@ import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { reducer as formReducer } from "redux-form";
 
-// const activeState = (state = "2", action) => {
-//   return (
-//     {
-//       ["ACTIVE_STATE_CHANGED"]: action.payload
-//     }[action.type] || state
-//   );
-// };
 const reducers = {
-  // activeState,
   form: formReducer
 };
 const reducer = combineReducers(reducers);
