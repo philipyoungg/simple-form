@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from 'react-router'
+import { withRouter } from "react-router";
 
 class ScrollToTop extends React.Component {
   componentDidUpdate(prevProps) {
@@ -7,7 +7,6 @@ class ScrollToTop extends React.Component {
       window.scrollTo(0, 0);
     }
   }
-
   render() {
     return this.props.children;
   }

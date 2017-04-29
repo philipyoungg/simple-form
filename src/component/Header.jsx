@@ -20,13 +20,10 @@ font-size: ${text.size.primary};
 color: ${text.color.secondary};
 `;
 
-
-
 const Header = ({ title, description, center, errMessage }) => (
   <HeaderWrapper center={center}>
     <Title>{title}</Title>
     {description && <Description>{description}</Description>}
-
   </HeaderWrapper>
 );
 

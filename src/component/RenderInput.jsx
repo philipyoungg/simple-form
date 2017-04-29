@@ -22,7 +22,6 @@ position: relative;
 padding: 0;
 marginTop: 4px;
 fontSize: ${text.size.primary};
-
 marginBottom: 0;
 background: transparent;
 border: none;
@@ -55,7 +54,7 @@ transform: ${props => (props.dirty ? "scale(0.75) translateY(-10px)" : props.act
 
 const InputError = styled.p`
 position: absolute;
-top: ${props => props.type === 'textarea' ? "137px" : "57px"};
+top: ${props => (props.type === "textarea" ? "137px" : "57px")};
 color: red;
 fontSize: ${text.size.secondary};
 `;
@@ -68,7 +67,7 @@ const renderInput = ({
 }) => (
   <InputWrapper type={type}>
     {type === "textarea"
-      ? <Textarea {...input} rows="6"/>
+      ? <Textarea {...input} rows="6" />
       : <Input {...input} type={type} />}
     <FloatingLabel dirty={dirty} active={active}>{label}</FloatingLabel>
     {touched && error && <InputError type={type}>{error}</InputError>}

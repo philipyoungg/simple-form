@@ -25,7 +25,7 @@ margin-top: -${global.size.margin}
 font-size: ${text.size.secondary}
 `;
 
-const PhotoUploadWrapper = styled.div``
+const PhotoUploadWrapper = styled.div``;
 
 const SmallMessage = styled.p`
   margin-top: ${global.size.margin};
@@ -62,9 +62,7 @@ text-align: center;
 
 const PhotoPlaceholder = () => (
   <PlaceholderWrapper>
-    <PhotoPlaceholderImage>
-      +
-    </PhotoPlaceholderImage>
+    <PhotoPlaceholderImage>+</PhotoPlaceholderImage>
     <PhotoPlaceholderText>Add Photo</PhotoPlaceholderText>
   </PlaceholderWrapper>
 );
@@ -97,9 +95,11 @@ class PhotoUpload extends React.Component {
     const { touched, imageUrl } = this.state;
     return (
       <PhotoUploadWrapper>
-        { touched &&
+        {touched &&
           imageUrl === "" &&
-          <ErrMessage>You need to upload a photo</ErrMessage>}
+          <ErrMessage>
+            You need to upload a photo (.jpg, .png, .gif ) are supported
+          </ErrMessage>}
         <ImageWrapper onClick={this.handleClick}>
           <img src={imageUrl} alt="" />
           {imageUrl === "" && <PhotoPlaceholder />}
@@ -113,7 +113,7 @@ class PhotoUpload extends React.Component {
           onFocus={() => alert("fooddd")}
         />
         <FixedButton valid={imageUrl !== ""} to="/2" />
-        <SmallMessage>Please upload any photo here</SmallMessage>
+        <SmallMessage>Please upload any photo here.</SmallMessage>
       </PhotoUploadWrapper>
     );
   }
