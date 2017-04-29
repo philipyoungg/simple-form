@@ -23,14 +23,13 @@ const validate = values => {
 const InputWrapper = styled.div`
 background: ${input.color.background};
 width: auto;
-display: block;
 maxWidth: 100%;
 border: 1px solid;
 borderColor: ${global.color.disabled};
 borderRadius: 4px;
 marginBottom: 21px;
 overflow: inherit;
-padding: ${global.size.padding};
+padding: 0 ${global.size.padding};
 height: ${global.size.touchable};
 position: relative;
 `;
@@ -40,6 +39,7 @@ position: relative;
 padding: 0;
 marginTop: 4px;
 fontSize: ${text.size.primary};
+line-height: ${global.size.touchable};
 marginBottom: 0;
 background: transparent;
 border: none;
@@ -60,7 +60,7 @@ transform: ${props => (props.dirty ? "scale(0.75) translateY(-10px)" : props.act
 
 const InputError = styled.p`
 position: absolute;
-top: 56px;
+top: 57px;
 color: red;
 fontSize: ${text.size.secondary};
 `;

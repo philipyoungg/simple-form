@@ -2,7 +2,8 @@ export const global = {
   size: {
     padding: "10px",
     margin: "20px",
-    touchable: "54px"
+    touchable: "54px",
+    borderRadius: "4px",
   },
   color: {
     background: "#F7F9FB",
@@ -16,7 +17,7 @@ export const text = {
   size: {
     big: "17px",
     primary: "14px",
-    seconrady: "12px"
+    secondary: "12px"
   },
   color: {
     primary: "#363A45",
@@ -25,6 +26,12 @@ export const text = {
 };
 
 export const input = {
+  color: {
+    background: "#EAEFF2"
+  }
+};
+
+export const uploader = {
   color: {
     background: "#EAEFF2"
   }

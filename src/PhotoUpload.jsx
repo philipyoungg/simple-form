@@ -1,9 +1,35 @@
 import React from "react";
 import Header from "./Header";
+import styled from "styled-components";
 import Steps from "./Steps";
 import FixedButton from "./FixedButton";
 
-import { text } from "./variable";
+import { global, text, uploader } from "./variable";
+
+const ImageWrapper = styled.div`
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  width: 100%;
+  border-radius: ${global.size.borderRadius};
+  background: ${uploader.color.background};
+
+  & > img {
+    position: absolute;
+    max-width: 100%;
+  }
+`;
+
+const ErrMessage = styled.p`
+color: red;
+padding-left: ${global.size.padding}
+margin-top: -${global.size.padding}
+`;
+
+const PhotoUploadWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+`;
 
 class PhotoUpload extends React.Component {
   state = {
@@ -12,12 +38,15 @@ class PhotoUpload extends React.Component {
   };
   handleClick = () => {
     this.refs.imageUpload.click();
-    this.setState({
-      touched: true
-    });
   };
   handleImageChange = () => {
     const file = this.refs.imageUpload.files[0];
+    if (!file.name.match(/.(jpg|jpeg|png|gif)$/i)) {
+      return this.setState({
+        touched: true,
+        imageUrl: ''
+      })
+    }
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = e =>
@@ -28,34 +57,38 @@ class PhotoUpload extends React.Component {
   };
 
   render() {
-    const { match } = this.props;
-    const errMessage = this.state.touched && this.state.imageUrl === ""
-      ? "You need to upload a photo"
-      : "";
+    const { touched, imageUrl } = this.state;
     return (
-      <div>
-        <Steps match={match} />
-        <Header title="Upload Photo" errMessage={errMessage} />
-        <div
-          className="relative aspect-ratio--16x9 bg-light-gray w-100 br2 overflow-hidden"
-          onClick={this.handleClick}
-        >
-          <img className="absolute" src={this.state.imageUrl} alt="" />
-        </div>
+      <PhotoUploadWrapper>
+        {touched &&
+          imageUrl === "" &&
+          <ErrMessage>You need to upload a photo</ErrMessage>}
+        <ImageWrapper onClick={this.handleClick}>
+          <img src={imageUrl} alt="" />
+        </ImageWrapper>
         <input
           type="file"
           name="pic"
           ref="imageUpload"
           style={{ display: "none" }}
           onChange={this.handleImageChange}
+          onFocus={() => alert("fooddd")}
         />
         <FixedButton valid={this.state.imageUrl !== ""} to="/2" />
-        <p style={{ color: text.color.secondary, marginTop: 10 }}>Please upload any photo here</p>
-      </div>
+        <p style={{ color: text.color.secondary, marginTop: 10 }}>
+          Please upload any photo here
+        </p>
+      </PhotoUploadWrapper>
     );
   }
 }
 
+const PhotoUploadPage = ({ match }) => (
+  <div>
+    <Steps match={match} />
+    <Header title="Upload Photo" />
+    <PhotoUpload />
+  </div>
+);
 
-
-export default PhotoUpload;
+export default PhotoUploadPage;

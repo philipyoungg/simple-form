@@ -20,15 +20,13 @@ font-size: ${text.size.primary};
 color: ${text.color.secondary};
 `;
 
-const ErrMessage = styled.p`
-color: red;
-`;
+
 
 const Header = ({ title, description, center, errMessage }) => (
   <HeaderWrapper center={center}>
     <Title>{title}</Title>
     {description && <Description>{description}</Description>}
-    {errMessage && <ErrMessage>{errMessage}</ErrMessage>}
+
   </HeaderWrapper>
 );
 

@@ -21,10 +21,6 @@ const App = () => (
   <Body>
     <Helmet>
       <meta name="viewport" content="width=device-width, user-scalable=no" />
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.7.1/tachyons.min.css"
-      />
     </Helmet>
     <AppBar />
     <Wrapper>
