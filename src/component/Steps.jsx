@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import StepsLink from "./StepsLink";
 import NextIcon from "./NextIcon";
-import { global, text } from "../variable";
+import { global } from "../variable";
 
 const StepsLinkWrapper = styled.div`
 text-align: center;

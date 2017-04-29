@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { text, global } from "../variable";
 
 const IconContainer = styled.div`
   width: 16px;
