@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { Link } from "react-router-dom";
-import { global, text } from "../variable";
+import { Link } from 'react-router-dom';
+import { global, text } from '../constant/variable';
 
 const LinkContainer = styled.div`
 float: left;
@@ -21,7 +21,7 @@ const StyledLink = styled(Link)`
 `;
 
 const StepsLink = ({ to, label, location, idenfitier }) => {
-  const currIdentifier = location.pathname.replace("/", "");
+  const currIdentifier = location.pathname.replace('/', '');
   const isFinished = currIdentifier >= idenfitier;
   const isActive = currIdentifier === idenfitier;
   return (

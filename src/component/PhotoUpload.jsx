@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import FixedButton from "./FixedButton";
-import PhotoPlaceholder from "./PhotoPlaceholder";
+import React from 'react';
+import styled from 'styled-components';
+import FixedButton from './FixedButton';
+import PhotoPlaceholder from './PhotoPlaceholder';
 
-import { global, text, uploader } from "../variable";
+import { global, text, uploader } from '../constant/variable';
 
 const ImageWrapper = styled.div`
   position: relative;
@@ -35,51 +35,52 @@ const PhotoUploadWrapper = styled.div``;
 
 class PhotoUpload extends React.Component {
   state = {
-    imageUrl: "",
-    touched: false
+    imageUrl: '',
+    touched: false,
   };
   handleClick = () => {
-    this.refs.imageUpload.click();
+    this.inputFile.click();
   };
-  handleImageChange = () => {
-    const file = this.refs.imageUpload.files[0];
+  handleChangeImage = () => {
+    const file = this.inputFile.files[0];
     // check if it's image—otherwise return error
     if (!file.name.match(/.(jpg|jpeg|png|gif)$/i)) {
-      return this.setState({
-        touched: true,
-        imageUrl: ""
-      });
-    }
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = e =>
       this.setState({
-        imageUrl: [reader.result]
+        touched: true,
+        imageUrl: '',
       });
+    } else {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () =>
+        this.setState({
+          imageUrl: [reader.result],
+        });
+    }
   };
 
   render() {
+    const { handleClick, handleChangeImage } = this;
     const { touched, imageUrl } = this.state;
     return (
       <PhotoUploadWrapper>
         {touched &&
-          imageUrl === "" &&
+          imageUrl === '' &&
           <ErrMessage>
             You need to upload a photo (.jpg, .png, .gif ) are supported
           </ErrMessage>}
-        <ImageWrapper onClick={this.handleClick}>
+        <ImageWrapper onClick={handleClick}>
           <img src={imageUrl} alt="" />
-          {imageUrl === "" && <PhotoPlaceholder />}
+          {imageUrl === '' && <PhotoPlaceholder />}
         </ImageWrapper>
         <input
           type="file"
           name="pic"
-          ref="imageUpload"
-          style={{ display: "none" }}
-          onChange={this.handleImageChange}
-          onFocus={() => alert("fooddd")}
+          ref={node => (this.inputFile = node)}
+          style={{ display: 'none' }}
+          onChange={handleChangeImage}
         />
-        <FixedButton valid={imageUrl !== ""} to="/2" />
+        <FixedButton valid={imageUrl !== ''} to="/2" />
         <SmallMessage>Please upload any photo here.</SmallMessage>
       </PhotoUploadWrapper>
     );

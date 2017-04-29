@@ -1,6 +1,6 @@
-import React from "react";
-import Header from "../component/Header";
-import FormUserRegistration from "../form/FormUserRegistration";
+import React from 'react';
+import Header from '../component/Header';
+import FormUserRegistration from '../form/FormUserRegistration';
 
 const UserRegistrationPage = () => (
   <div>

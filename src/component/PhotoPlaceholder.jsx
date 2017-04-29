@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { global, text } from "../variable";
+import React from 'react';
+import styled from 'styled-components';
+import { global, text } from '../constant/variable';
 
 const PhotoPlaceholderText = styled.p`
   font-size: ${text.size.big};

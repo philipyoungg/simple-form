@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { withRouter } from "react-router-dom";
-import StepsLink from "./StepsLink";
-import NextIcon from "./NextIcon";
-import { global } from "../variable";
+import React from 'react';
+import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
+import StepsLink from './StepsLink';
+import NextIcon from './NextIcon';
+import { global } from '../constant/variable';
 
 const StepsLinkWrapper = styled.div`
 text-align: center;
@@ -26,7 +26,7 @@ const NextIconWrapper = styled.div`
 `;
 
 const Steps = ({ location }) => (
-  <div style={{position: 'relative'}}>
+  <div style={{ position: 'relative' }}>
     <NextIconWrapper>
       <NextIcon />
       <NextIcon />

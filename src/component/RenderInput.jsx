@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { global, text, input } from "../variable";
+import { global, text, form } from '../constant/variable';
 
 const InputWrapper = styled.div`
-background: ${input.color.background};
+background: ${form.color.background};
 width: auto;
 maxWidth: 100%;
 border: 1px solid;
@@ -13,7 +13,7 @@ border-radius: ${global.size.borderRadius};
 marginBottom: 21px;
 overflow: inherit;
 padding: 0 ${global.size.padding};
-height: ${props => (props.type === "textarea" ? "auto" : global.size.touchable)};
+height: ${props => (props.type === 'textarea' ? 'auto' : global.size.touchable)};
 position: relative;
 `;
 
@@ -49,12 +49,12 @@ transition: 0.3s ease-in-out;
 transformOrigin: left 0;
 color: ${text.color.secondary};
 pointerEvents: none;
-transform: ${props => (props.dirty ? "scale(0.75) translateY(-10px)" : props.active ? "scale(0.75) translateY(-10px)" : "")}
+transform: ${props => (props.dirty ? 'scale(0.75) translateY(-10px)' : props.active ? 'scale(0.75) translateY(-10px)' : '')}
 `;
 
 const InputError = styled.p`
 position: absolute;
-top: ${props => (props.type === "textarea" ? "137px" : "57px")};
+top: ${props => (props.type === 'textarea' ? '137px' : '57px')};
 color: red;
 fontSize: ${text.size.secondary};
 `;
@@ -63,10 +63,10 @@ const renderInput = ({
   input,
   label,
   type,
-  meta: { touched, error, dirty, active }
+  meta: { touched, error, dirty, active },
 }) => (
   <InputWrapper type={type}>
-    {type === "textarea"
+    {type === 'textarea'
       ? <Textarea {...input} rows="6" />
       : <Input {...input} type={type} />}
     <FloatingLabel dirty={dirty} active={active}>{label}</FloatingLabel>

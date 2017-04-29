@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { text, global } from "../variable";
+import React from 'react';
+import styled from 'styled-components';
+import { text, global } from '../constant/variable';
 
 const HeaderWrapper = styled.div`
 padding: 0 ${global.size.padding};
-text-align: ${props => (props.center ? "center" : "")};
+text-align: ${props => (props.center ? 'center' : '')};
 margin-bottom: ${global.size.margin};
 `;
 
@@ -20,7 +20,7 @@ font-size: ${text.size.primary};
 color: ${text.color.secondary};
 `;
 
-const Header = ({ title, description, center, errMessage }) => (
+const Header = ({ title, description, center }) => (
   <HeaderWrapper center={center}>
     <Title>{title}</Title>
     {description && <Description>{description}</Description>}
