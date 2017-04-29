@@ -19,22 +19,22 @@ class PhotoUpload extends React.Component {
   handleImageChange = () => {
     const file = this.refs.imageUpload.files[0];
     const reader = new FileReader();
-    reader.readAsDataURL(file)
+    reader.readAsDataURL(file);
     reader.onloadend = e =>
       this.setState({
         imageUrl: [reader.result],
         errMessage: ""
       });
-
   };
 
   render() {
+    const { match } = this.props;
     const errMessage = this.state.touched && this.state.imageUrl === ""
       ? "You need to upload a photo"
       : "";
     return (
       <div>
-        <Steps />
+        <Steps match={match} />
         <Header title="Upload Photo" errMessage={errMessage} />
         <div
           className="relative aspect-ratio--16x9 bg-light-gray w-100 br2 overflow-hidden"
@@ -50,7 +50,7 @@ class PhotoUpload extends React.Component {
           onChange={this.handleImageChange}
         />
         <FixedButton valid={this.state.imageUrl !== ""} to="/2" />
-        <p style={{ textColorSecondary }}>Please upload any photo here</p>
+        <p style={{ color: textColorSecondary, marginTop: 10 }}>Please upload any photo here</p>
       </div>
     );
   }

@@ -110,7 +110,7 @@ class FormUserRegistration extends React.Component {
           type="tel"
           label="Contact Number"
         />
-      <FixedButton valid={valid} to='/3'/>
+        <FixedButton valid={valid} to="/3" />
       </form>
     );
   }
@@ -121,9 +121,9 @@ FormUserRegistration = reduxForm({
   validate
 })(FormUserRegistration);
 
-const UserRegistrationPage = ({ handleNextPage }) => (
+const UserRegistrationPage = ({ handleNextPage, match }) => (
   <div>
-    <Steps />
+    <Steps match={match} />
     <Header
       title="Your contact information"
       description="Fill in the following details"
