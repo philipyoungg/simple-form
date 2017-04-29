@@ -3,8 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import FixedButton from "../component/FixedButton";
 import renderInput from "../component/RenderInput";
 
-let FormUserRegistration = () => {
-  const { valid } = this.props;
+let FormUserRegistration = ({ valid }) => {
   return (
     <form>
       <Field
@@ -50,9 +49,7 @@ const validate = values => {
   return errors;
 };
 
-FormUserRegistration = reduxForm({
+export default reduxForm({
   form: "userRegistration",
   validate
 })(FormUserRegistration);
-
-export default FormUserRegistration;

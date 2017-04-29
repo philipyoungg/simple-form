@@ -28,7 +28,7 @@ font-size: ${text.size.secondary}
 const PhotoUploadWrapper = styled.div``;
 
 const SmallMessage = styled.p`
-  margin-top: ${global.size.margin};
+  margin-top: ${global.size.padding};
   color: ${text.color.secondary};
 `;
 
