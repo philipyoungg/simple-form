@@ -1,16 +1,10 @@
-import React from "react";
-import {
-  colorPrimary
-} from "./variable";
+import styled from "styled-components";
+import { global } from "./variable";
 
-const AppBar = () => (
-  <div
-    style={{
-      height: 45,
-      width: "100%",
-      backgroundColor: colorPrimary,
-    }}
-  />
-);
+const AppBar = styled.div`
+  height: ${global.size.touchable};
+  width: 100%;
+  backgroundColor: ${global.color.primary};
+`;
 
 export default AppBar;

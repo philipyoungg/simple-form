@@ -1,40 +1,37 @@
 import React from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { colorPrimary } from "./variable";
+import { global } from "./variable";
+
+const ButtonWrapper = styled.div`
+  padding: ${global.size.padding};
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+`;
+
+const Button = styled.button`
+  height: ${global.size.touchable};
+  width: 100%;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  line-height: ${global.size.touchable};
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: ${props => (props.valid ? global.color.primary : global.color.disabled)};
+`;
 
 const FixedButton = ({ valid, to }) => {
   return (
-    <div
-      style={{
-        padding: "10px",
-        position: "fixed",
-        width: "100%",
-        bottom: 0,
-        left: 0,
-        zIndex: "100"
-      }}
-    >
+    <ButtonWrapper>
       <Link to={to}>
-        <button
-          type="submit"
-          disabled={!valid}
-          style={{
-            height: 54,
-            width: "100%",
-            fontWeight: "bold",
-            color: "white",
-            textAlign: "center",
-            lineHeight: "54px",
-            border: "none",
-            cursor: "pointer",
-            borderRadius: "4px",
-            backgroundColor: valid ? colorPrimary : "gray"
-          }}
-        >
-          NEXT
-        </button>
+        <Button type="submit" disabled={!valid} valid={valid}>NEXT</Button>
       </Link>
-    </div>
+    </ButtonWrapper>
   );
 };
 

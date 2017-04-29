@@ -3,7 +3,7 @@ import Header from "./Header";
 import Steps from "./Steps";
 import FixedButton from "./FixedButton";
 
-import { textColorSecondary } from "./variable";
+import { text } from "./variable";
 
 class PhotoUpload extends React.Component {
   state = {
@@ -50,10 +50,12 @@ class PhotoUpload extends React.Component {
           onChange={this.handleImageChange}
         />
         <FixedButton valid={this.state.imageUrl !== ""} to="/2" />
-        <p style={{ color: textColorSecondary, marginTop: 10 }}>Please upload any photo here</p>
+        <p style={{ color: text.color.secondary, marginTop: 10 }}>Please upload any photo here</p>
       </div>
     );
   }
 }
+
+
 
 export default PhotoUpload;

@@ -1,9 +1,10 @@
 import React from "react";
+import styled from "styled-components";
 import { Field, reduxForm } from "redux-form";
 import FixedButton from "./FixedButton";
 import Header from "./Header";
 import Steps from "./Steps";
-import { fontSizePrimary, textColorSecondary } from "./variable";
+import {global, text, input} from "./variable";
 
 const validate = values => {
   const defaultErrMessage = "This field cannot be empty";
@@ -19,72 +20,62 @@ const validate = values => {
   return errors;
 };
 
-const renderField = ({
+const InputWrapper = styled.div`
+background: ${input.color.background};
+width: auto;
+display: block;
+maxWidth: 100%;
+border: 1px solid;
+borderColor: ${global.color.disabled};
+borderRadius: 4px;
+marginBottom: 21px;
+overflow: inherit;
+padding: ${global.size.padding};
+height: ${global.size.touchable};
+position: relative;
+`;
+
+const Input = styled.input`
+position: relative;
+padding: 0;
+marginTop: 4px;
+fontSize: ${text.size.primary};
+marginBottom: 0;
+background: transparent;
+border: none;
+width: 100%;
+height: 100%;
+`;
+
+const FloatingLabel = styled.p`
+top: 0;
+position: absolute;
+lineHeight: ${global.size.touchable};
+transition: 0.3s ease-in-out;
+transformOrigin: left 0;
+color: ${text.color.secondary};
+pointerEvents: none;
+transform: ${props => (props.dirty ? "scale(0.75) translateY(-10px)" : props.active ? "scale(0.75) translateY(-10px)" : "")}
+`;
+
+const InputError = styled.p`
+position: absolute;
+top: 56px;
+color: red;
+fontSize: ${text.size.secondary};
+`;
+
+const renderInput = ({
   input,
   label,
   type,
   meta: { touched, error, dirty, active }
 }) => (
-  <div
-    style={{
-      background: "#EAEFF2",
-      width: "auto",
-      display: "block",
-      maxWidth: "100%",
-      border: "1px solid",
-      borderColor: "#CCD6DD",
-      borderRadius: 4,
-      marginBottom: 21,
-      overflow: "inherit",
-      padding: "0 12px",
-      height: 54,
-      position: "relative"
-    }}
-  >
-    <input
-      {...input}
-      type={type}
-      style={{
-        position: "relative",
-        padding: 0,
-        marginTop: 4,
-        fontSize: fontSizePrimary,
-        marginBottom: "0",
-        background: "transparent",
-        border: "none",
-        width: "100%",
-        height: "100%"
-      }}
-    />
-    <p
-      style={{
-        top: 0,
-        position: "absolute",
-        lineHeight: "54px",
-        transition: "0.3s ease-in-out",
-        transformOrigin: "left 0",
-        color: textColorSecondary,
-        pointerEvents: "none",
-        transform: dirty
-          ? "scale(0.75) translateY(-10px)"
-          : active ? "scale(0.75) translateY(-10px)" : ""
-      }}
-    >
-      {label}
-    </p>
-    {touched &&
-      error &&
-      <p
-        style={{
-          position: "absolute",
-          top: 57,
-          color: "red",
-          fontSize: 11
-        }}
-      >
-        {error}
-      </p>}
-  </div>
+  <InputWrapper>
+    <Input {...input} type={type} />
+    <FloatingLabel dirty={dirty} active={active}>{label}</FloatingLabel>
+    {touched && error && <InputError>{error}</InputError>}
+  </InputWrapper>
 );
 
 class FormUserRegistration extends React.Component {
@@ -94,19 +85,19 @@ class FormUserRegistration extends React.Component {
       <form>
         <Field
           name="firstName"
-          component={renderField}
+          component={renderInput}
           type="text"
           label="Your First Name"
         />
         <Field
           name="lastName"
-          component={renderField}
+          component={renderInput}
           type="text"
           label="Your Last Name"
         />
         <Field
           name="phone"
-          component={renderField}
+          component={renderInput}
           type="tel"
           label="Contact Number"
         />

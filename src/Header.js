@@ -1,25 +1,35 @@
 import React from "react";
-import { textColorPrimary, textColorSecondary } from "./variable";
+import styled from "styled-components";
+import { text, global } from "./variable";
+
+const HeaderWrapper = styled.div`
+padding: 0 ${global.size.padding};
+text-align: ${props => (props.center ? "center" : "")};
+margin-bottom: ${global.size.margin};
+`;
+
+const Title = styled.h1`
+font-size: ${text.size.big};
+color: ${text.color.primary};
+font-weight: normal;
+marginBottom: 7px;
+`;
+
+const Description = styled.p`
+font-size: ${text.size.primary};
+color: ${text.color.secondary};
+`;
+
+const ErrMessage = styled.p`
+color: red;
+`;
 
 const Header = ({ title, description, center, errMessage }) => (
-  <div style={{ padding: "0 10px", textAlign: center ? "center" : "" }}>
-    <p
-      style={{
-        fontSize: "17px",
-        color: textColorPrimary,
-        fontWeight: "normal",
-        marginBottom: "7px"
-      }}
-    >
-      {title}
-    </p>
-    {description &&
-      <p style={{ fontSize: "14px", color: textColorSecondary }}>
-        {description}
-      </p>}
-    {errMessage && <p style={{ color: "red" }}>{errMessage}</p>}
-
-  </div>
+  <HeaderWrapper center={center}>
+    <Title>{title}</Title>
+    {description && <Description>{description}</Description>}
+    {errMessage && <ErrMessage>{errMessage}</ErrMessage>}
+  </HeaderWrapper>
 );
 
 export default Header;
