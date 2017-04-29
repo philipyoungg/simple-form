@@ -7,8 +7,10 @@ const ButtonWrapper = styled.div`
   padding: ${global.size.padding};
   position: fixed;
   width: 100%;
+  max-width: 500px;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1000;
 `;
 

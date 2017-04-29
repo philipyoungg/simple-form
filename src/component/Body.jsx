@@ -5,6 +5,8 @@ const Body = styled.div`
   padding-bottom: 50px;
   background-color: ${global.color.background};
   min-height: 100vh;
+  max-width: 500px;
+  margin: 0 auto;
 `;
 
 export default Body;
