@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../component/Header";
 import FormUserRegistration from "../form/FormUserRegistration";
 
-const UserRegistrationPage = ({ handleNextPage, match }) => (
+const UserRegistrationPage = () => (
   <div>
     <Header
       title="Your contact information"
