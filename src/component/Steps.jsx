@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { global, text } from "../variable";
 import { withRouter } from "react-router-dom";
-import { StepsLink } from "./StepsLink";
+import StepsLink from "./StepsLink";
+import { global } from "../variable";
 
 const StepsLinkWrapper = styled.div`
 text-align: center;
-paddingBottom: ${global.size.margin};
+padding-bottom: ${global.size.margin};
   &:after {
     display: table;
     clear:both;

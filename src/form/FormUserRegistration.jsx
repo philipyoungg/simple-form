@@ -3,7 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import FixedButton from "../component/FixedButton";
 import renderInput from "../component/RenderInput";
 
-const FormUserRegistration = () => {
+let FormUserRegistration = () => {
   const { valid } = this.props;
   return (
     <form>

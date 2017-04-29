@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Link from "react-router-dom";
-import { text } from "../variable";
+
+import { Link } from "react-router-dom";
+import { global, text } from "../variable";
 
 const LinkContainer = styled.div`
 float: left;
