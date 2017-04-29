@@ -97,7 +97,7 @@ class PhotoUpload extends React.Component {
     const { touched, imageUrl } = this.state;
     return (
       <PhotoUploadWrapper>
-        {touched &&
+        { touched &&
           imageUrl === "" &&
           <ErrMessage>You need to upload a photo</ErrMessage>}
         <ImageWrapper onClick={this.handleClick}>

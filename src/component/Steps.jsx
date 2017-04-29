@@ -3,6 +3,16 @@ import styled from "styled-components";
 import { global, text } from "../variable";
 import { Link, withRouter } from "react-router-dom";
 
+const StepsLinkWrapper = styled.div`
+text-align: center;
+paddingBottom: ${global.size.margin};
+  &:after {
+    display: table;
+    clear:both;
+    content: "";
+  }
+`;
+
 const LinkContainer = styled.div`
 float: left;
 width: 33.33%;
@@ -33,16 +43,6 @@ const StepsLink = ({ to, label, location, idenfitier }) => {
     </LinkContainer>
   );
 };
-
-const StepsLinkWrapper = styled.div`
-text-align: center;
-paddingBottom: ${global.size.margin};
-  &:after {
-    display: table;
-    clear:both;
-    content: "";
-  }
-`;
 
 const Steps = ({ location }) => (
   <StepsLinkWrapper>
