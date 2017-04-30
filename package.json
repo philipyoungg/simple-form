@@ -6,7 +6,6 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
-    "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
     "redux-form": "^6.6.3",
     "styled-components": "^1.4.5"

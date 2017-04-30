@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import FixedButton from './FixedButton';
+import FixedButton from '../FixedButton';
 import PhotoPlaceholder from './PhotoPlaceholder';
 
-import { global, text, uploader } from '../constant/variable';
+import { global, text, uploader } from '../../constant/variable';
 
 const ImageWrapper = styled.div`
   position: relative;
@@ -80,7 +80,7 @@ class PhotoUpload extends React.Component {
           style={{ display: 'none' }}
           onChange={handleChangeImage}
         />
-        <FixedButton valid={imageUrl !== ''} to="/2" />
+        <FixedButton valid={imageUrl !== ''} to="2" />
         <SmallMessage>Please upload any photo here.</SmallMessage>
       </PhotoUploadWrapper>
     );

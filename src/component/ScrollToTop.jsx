@@ -1,9 +1,9 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class ScrollToTop extends React.Component {
   componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
+    if (prevProps.activeStep !== this.props.activeStep) {
       window.scrollTo(0, 0);
     }
   }
@@ -12,4 +12,4 @@ class ScrollToTop extends React.Component {
   }
 }
 
-export default withRouter(ScrollToTop);
+export default connect(state => ({ activeStep: state.activeStep }))(ScrollToTop);

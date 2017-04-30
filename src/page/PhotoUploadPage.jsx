@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../component/Header';
-import PhotoUpload from '../component/PhotoUpload';
+import PhotoUpload from '../component/PhotoUpload/PhotoUpload';
 
 const PhotoUploadPage = () => (
   <div>

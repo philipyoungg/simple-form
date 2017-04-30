@@ -29,7 +29,7 @@ const FormUserRegistration = ({ valid }) => (
       type="textarea"
       label="Address"
     />
-    <FixedButton valid={valid} to="/3" />
+    <FixedButton valid={valid} to="3" />
   </form>
   );
 

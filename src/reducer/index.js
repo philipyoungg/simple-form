@@ -1,9 +1,8 @@
 import { reducer as formReducer } from 'redux-form';
 import { combineReducers } from 'redux';
+import activeStep from './activeStep';
 
-const reducers = {
+export default combineReducers({
+  activeStep,
   form: formReducer,
-};
-const reducer = combineReducers(reducers);
-
-export default reducer;
+});

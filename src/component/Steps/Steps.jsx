@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
-import StepsLink from './StepsLink';
+import StepsState from './StepsState';
 import NextIcon from './NextIcon';
-import { global } from '../constant/variable';
+import { global } from '../../constant/variable';
 
-const StepsLinkWrapper = styled.div`
+const StepsStateWrapper = styled.div`
 text-align: center;
 margin-bottom: ${global.size.margin};
   &:after {
@@ -25,18 +24,18 @@ const NextIconWrapper = styled.div`
   align-items: center;
 `;
 
-const Steps = ({ location }) => (
+const Steps = () => (
   <div style={{ position: 'relative' }}>
     <NextIconWrapper>
       <NextIcon />
       <NextIcon />
     </NextIconWrapper>
-    <StepsLinkWrapper>
-      <StepsLink to="/1" label="Step 1" idenfitier="1" location={location} />
-      <StepsLink to="/2" label="Step 2" idenfitier="2" location={location} />
-      <StepsLink to="/3" label="Step 3" idenfitier="3" location={location} />
-    </StepsLinkWrapper>
+    <StepsStateWrapper>
+      <StepsState label="Step 1" identifier="1" />
+      <StepsState label="Step 2" identifier="2" />
+      <StepsState label="Step 3" identifier="3" />
+    </StepsStateWrapper>
   </div>
 );
 
-export default withRouter(Steps);
+export default Steps;
